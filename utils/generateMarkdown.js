@@ -77,3 +77,56 @@ function renderLicenseBadge(license) {
     }
   
   }
+
+  function renderLicenseSection(license) {
+
+    renderLicenseBadge(license);
+    
+    renderLicenseLink(license);
+    
+    }
+    
+    function generateMarkdown(data) {
+    
+    return `# ${data.title}
+    ${renderLicenseBadge(data.license)}   
+    ## Description
+    ${data.description}   
+          
+    ## Table of Contents
+    * [Installation](#install)
+    * [Usage](#usage)
+    * [Credits](#credits)
+    * [License](#license)
+    * [Contributions](#contributions)
+    * [Tests](#tests)
+    * [Questions](#questions)   
+           
+    ## <a name="install"> Installation </a>
+    ${data.installation}   
+      
+    ## <a name="usage"> Usage </a>
+    ${data.usage}   
+       
+       
+    ## <a name="credits"> Credits </a>
+    ${data.credits}   
+       
+    ## <a name="license"> License </a>
+    This application is under the license: ${data.license}
+    ${renderLicenseBadge(data.license)}            
+    Visit ${renderLicenseLink(data.license)} for more information regarding this license.
+    ## ## <a name="contributions"> Contributions </a>
+    ${data.contributions}   
+        
+    ## <a name="tests"> Tests </a>
+    ${data.test}   
+        
+    ## <a name="questions"> Questions? </a>
+    GitHub Link: **[${data.github}](https://github.com/${data.github}/)**   
+    Email Address: <${data.email}>
+    `;
+    }
+    
+    module.exports = generateMarkdown;
+    
